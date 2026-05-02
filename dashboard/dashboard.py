@@ -61,8 +61,8 @@ main_df = all_df[(all_df["order_purchase_timestamp"].dt.date >= start_date) &
 # HEADER & KPI
 # ==============================================================================
 st.title("🛒 Olist E-Commerce Analytics Dashboard")
-st.markdown("**Nama:** Muhammad Firman Ardiansyah | **ID Dicoding:** cdcc012d6y1245")[cite: 2]
-st.markdown("*Dashboard ini menyajikan hasil analisis data e-commerce di Brazil tahun 2018, berfokus pada efisiensi logistik, sistem pembayaran, dan segmentasi pelanggan.*")[cite: 1]
+st.markdown("**Nama:** Muhammad Firman Ardiansyah | **ID Dicoding:** cdcc012d6y1245")
+st.markdown("*Dashboard ini menyajikan hasil analisis data e-commerce di Brazil tahun 2018, berfokus pada efisiensi logistik, sistem pembayaran, dan segmentasi pelanggan.*")
 
 st.write("") 
 st.subheader("📌 Key Performance Indicators (Pelanggan)")
@@ -124,7 +124,7 @@ with col_text2:
     st.warning("""
     **⚠️ Insight Sistem Pembayaran:**
     - Validasi **Boleto (32.01 jam)** jauh melampaui **Credit Card (3.45 jam)**.
-    - Hal ini berisiko menyebabkan *inventory lock* selama periode Flash Sale[cite: 1].
+    - Hal ini berisiko menyebabkan *inventory lock* selama periode Flash Sale.
     """)
 
 with col_chart2:
@@ -142,14 +142,14 @@ fig3, ax = plt.subplots(figsize=(12, 4))
 rfm_counts = main_df['RFM_Score'].value_counts().head(10)
 sns.barplot(x=rfm_counts.index, y=rfm_counts.values, palette='Blues_d', ax=ax)
 st.pyplot(fig3)
-st.success("**Insight RFM:** Pelanggan didominasi pembeli tunggal. Dibutuhkan strategi retensi yang lebih agresif[cite: 1].")
+st.success("**Insight RFM:** Pelanggan didominasi pembeli tunggal. Dibutuhkan strategi retensi yang lebih agresif.")
 
 st.subheader("🗺️ 4. Peta Persebaran Lokasi Pelanggan")
 map_data = main_df[['geolocation_lat', 'geolocation_lng']].dropna()
 map_data.rename(columns={'geolocation_lat': 'lat', 'geolocation_lng': 'lon'}, inplace=True)
 if not map_data.empty:
     st.map(map_data, zoom=3)
-st.info("**Insight Geospasial:** Konsentrasi pasar terpusat di wilayah Tenggara (Sao Paulo & RJ), sedangkan wilayah Utara masih sangat minim pelanggan[cite: 1].")
+st.info("**Insight Geospasial:** Konsentrasi pasar terpusat di wilayah Tenggara (Sao Paulo & RJ), sedangkan wilayah Utara masih sangat minim pelanggan.")
 
 # ==============================================================================
 # KESIMPULAN
@@ -158,7 +158,7 @@ st.subheader("📝 Kesimpulan & Rekomendasi")
 st.markdown("""
 - **Logistik:** Beban ongkir di wilayah Utara mencapai 59% (RO), menurunkan kepuasan pelanggan.
 - **Pembayaran:** Efisiensi validasi pembayaran instan lebih baik untuk menjaga perputaran stok saat promo.
-- **Aksi:** Bangun gudang distribusi regional di wilayah Utara untuk menekan rasio biaya kirim[cite: 1].
+- **Aksi:** Bangun gudang distribusi regional di wilayah Utara untuk menekan rasio biaya kirim.
 """)
 
 st.caption("Copyright © Muhammad Firman Ardiansyah 2026")
